@@ -1,0 +1,32 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+.venv
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Large archives (optional - uncomment if you want to exclude)
+# *.zip
+
+# Temporary files
+*.tmp
+*.log
+
+# Data backups (if any)
+*.bak
+*.backup

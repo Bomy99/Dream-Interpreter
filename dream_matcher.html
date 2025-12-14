@@ -1,0 +1,1046 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dream Interpretation</title>
+    <style>
+  :root{
+    --bg: #f6f7fb;
+    --card: #ffffff;
+    --text: #18181b;
+    --muted: #6b7280;
+    --line: rgba(17,24,39,0.08);
+    --softline: rgba(17,24,39,0.06);
+
+    --accent: #667eea;
+    --accent2:#7c3aed;
+    --accentSoft: rgba(102,126,234,.14);
+
+    --radius-xl: 22px;
+    --radius-lg: 18px;
+    --radius-md: 14px;
+
+    --shadow-sm: 0 6px 18px rgba(17,24,39,.06);
+    --shadow-md: 0 18px 44px rgba(17,24,39,.10);
+
+    --ring: 0 0 0 4px rgba(102,126,234,.18);
+  }
+
+  *{ margin:0; padding:0; box-sizing:border-box; }
+
+  body{
+    font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
+    background:
+      radial-gradient(1200px 600px at 20% -10%, rgba(124,58,237,.14), transparent 60%),
+      radial-gradient(900px 480px at 90% 0%, rgba(102,126,234,.16), transparent 55%),
+      var(--bg);
+    min-height:100vh;
+    padding: 28px 16px 44px;
+    color: var(--text);
+    line-height:1.6;
+  }
+
+  .container{
+    max-width: 980px;
+    margin: 0 auto;
+  }
+        
+  /* Header */
+  .header{
+    text-align:center;
+    margin: 14px 0 38px;
+    padding-top: 10px;
+  }
+  .header h1{
+    font-size: 46px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--text);
+    margin-bottom: 10px;
+  }
+  .header p{
+    font-size: 15px;
+    color: var(--muted);
+  }
+
+  /* Input Card */
+  .input-card{
+    background: 
+      radial-gradient(circle at 20% 30%, rgba(124,58,237,.03) 0%, transparent 50%),
+      radial-gradient(circle at 80% 70%, rgba(102,126,234,.03) 0%, transparent 50%),
+      rgba(255,255,255,.85);
+    backdrop-filter: blur(8px);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-xl);
+    padding: 28px;
+    box-shadow: var(--shadow-md);
+    margin-bottom: 34px;
+    max-width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .input-section label{
+    display:block;
+    font-size: 13px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #52525b;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+
+  textarea{
+    width:100%;
+    padding: 16px 16px;
+    border: 1px solid var(--softline);
+    border-radius: var(--radius-md);
+    font-size: 16px;
+    font-family: inherit;
+    resize: vertical;
+    min-height: 140px;
+    background: rgba(255,255,255,.9);
+    transition: box-shadow .18s ease, border-color .18s ease, transform .08s ease;
+    line-height: 1.65;
+  }
+  textarea:focus{
+    outline:none;
+    border-color: rgba(102,126,234,.55);
+    box-shadow: var(--ring);
+  }
+
+  button{
+    width:100%;
+    border: 1px solid rgba(255,255,255,.20);
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    color: #fff;
+    padding: 15px 18px;
+    font-size: 15px;
+    font-weight: 700;
+    border-radius: 14px;
+    cursor:pointer;
+    margin-top: 18px;
+    transition: transform .10s ease, filter .18s ease, box-shadow .18s ease;
+    box-shadow: 0 12px 28px rgba(102,126,234,.22);
+  }
+  button:hover:not(:disabled){
+    filter: brightness(1.03);
+    transform: translateY(-1px);
+    box-shadow: 0 16px 34px rgba(102,126,234,.26);
+  }
+  button:active:not(:disabled){
+    transform: translateY(0);
+  }
+  button:disabled{
+    opacity:.65;
+    cursor:not-allowed;
+    box-shadow:none;
+  }
+
+  /* Results wrapper */
+  .results{ display:none; }
+
+  .section-heading{
+    font-size: 25px;
+    letter-spacing: .14em;
+    color: #6b7280;
+    text-transform: uppercase;
+    font-weight: 800;
+    margin: 22px 0 12px;
+    text-align: center;
+    justify-content: center;
+  }
+
+  /* Symbols grid */
+  .symbols-grid{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+    margin-bottom: 22px;
+  }
+  @media (max-width: 720px){
+    .symbols-grid{ grid-template-columns: 1fr; }
+  }
+
+  .symbol-card{
+    background: 
+      radial-gradient(circle at 15% 25%, rgba(124,58,237,.025) 0%, transparent 45%),
+      radial-gradient(circle at 85% 75%, rgba(102,126,234,.025) 0%, transparent 45%),
+      var(--card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    padding: 22px 22px 20px;
+    box-shadow: var(--shadow-sm);
+    transition: transform .12s ease, box-shadow .12s ease;
+  }
+  .symbol-card:hover{
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(17,24,39,.09);
+  }
+  
+  .symbol-header, .symbol-title-wrapper{
+    text-align: center;
+    width: 100%;
+  }
+
+  .symbol-title{
+    text-align:center;
+    font-size: 26px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin-bottom: 20px;
+    text-decoration: underline;
+    text-decoration-color: rgba(102,126,234,.4);
+    text-underline-offset: 4px;
+    width: 100%;
+    display: block;
+  }
+
+  .meaning{
+    font-size: 20.5px;
+    line-height: 1.65;
+    color: #27272a;
+    background: linear-gradient(180deg, #fbfbfe, #f6f7ff);
+    border: 1px solid rgba(102,126,234,.14);
+    border-left: 4px solid rgba(102,126,234,.60);
+    padding: 16px 18px;
+    border-radius: 14px;
+    margin-top: 8px;
+  }
+
+  /* Dream Yield */
+  .dream-yield-section{
+    max-width: 1075px;
+    margin: 22px auto 34px;
+    background: 
+      radial-gradient(circle at 30% 40%, rgba(124,58,237,.02) 0%, transparent 55%),
+      radial-gradient(circle at 70% 60%, rgba(102,126,234,.02) 0%, transparent 55%),
+      linear-gradient(180deg, rgba(255,255,255,.95), rgba(248,250,255,.92));
+    backdrop-filter: blur(8px);
+    border: 2px solid rgba(102,126,234,.25);
+    border-radius: var(--radius-xl);
+    padding: 18px 18px 16px;
+    box-shadow: none;
+  }
+  .dream-yield-heading{
+    font-size: 25px;
+    letter-spacing: .14em;
+    color:#6b7280;
+    text-transform: uppercase;
+    font-weight: 800;
+    margin-bottom: 12px;
+    text-align: center;
+  }
+
+  .dream-yield-content{
+    display:grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 30px;
+    align-items: center;
+    justify-items: center;
+    width: 100%;
+  }
+  @media (max-width: 720px){
+    .dream-yield-content{ 
+      grid-template-columns: 1fr; 
+      gap: 14px;
+    }
+    .dream-yield-plus{ display: none; }
+  }
+
+  .dream-yield-item{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content: center;
+    gap: 20px;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    padding: 20px;
+    min-height: 200px;
+    flex-wrap: nowrap;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .dream-yield-book, .dream-yield-emoji{
+    width: 150px;
+    height: 150px;
+    max-width: 100%;
+    max-height: 150px;
+    object-fit: contain;
+    filter: drop-shadow(0 10px 14px rgba(17,24,39,.10));
+    flex-shrink: 0;
+    display: block;
+    margin: 0 auto;
+  }
+
+  .dream-yield-meta{
+    display:flex;
+    flex-direction:column;
+    gap: 4px;
+    align-items: center;
+    text-align: center;
+  }
+  .dream-yield-label{
+    margin-top:0;
+    font-size: 25px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color:#6b7280;
+    font-weight: 800;
+  }
+  .dream-yield-sub{
+    font-size: 25px;
+    color:#27272a;
+    font-weight: 700;
+  }
+  
+  .dream-yield-plus{
+    font-size: 78px;
+    color: #667eea;
+    font-weight: 300;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .dream-yield-tarot-meaning{
+    display: none; /* Hidden - shown in yield-note below instead */
+  }
+
+  /* Freud Section */
+  .freud-section{
+    background: 
+      radial-gradient(circle at 25% 35%, rgba(124,58,237,.025) 0%, transparent 50%),
+      radial-gradient(circle at 75% 65%, rgba(102,126,234,.025) 0%, transparent 50%),
+      rgba(255,255,255,.92);
+    backdrop-filter: blur(8px);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-xl);
+    padding: 22px;
+    box-shadow: var(--shadow-md);
+    margin-bottom: 26px;
+    max-width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .freud-heading{
+    font-size: 11px;
+    letter-spacing: .14em;
+    color:#6b7280;
+    text-transform: uppercase;
+    font-weight: 800;
+    margin: 8px 0 14px;
+  }
+
+  .freud-content{
+    display:flex;
+    gap: 18px;
+    align-items:flex-start;
+  }
+
+  @media (max-width: 720px){
+    .freud-content{ flex-direction: column; }
+  }
+
+  .freud-image{
+    width: 220px;
+    max-width: 220px;
+    height:auto;
+    border-radius: 16px;
+    box-shadow: 0 18px 40px rgba(17,24,39,.18);
+    border: 1px solid rgba(17,24,39,.10);
+    flex-shrink: 0;
+    background:#fff;
+  }
+
+  .freud-quote-wrap{
+    position: relative;
+    flex: 1;
+    max-width: 100%;
+    margin-left: 30px; /* Space from Freud image */
+    margin-right: 30px; /* Space from outer border */
+  }
+
+  .speech-bubble{
+    position:relative;
+    background: linear-gradient(180deg, #ffffff, #f7f8fb);
+    border: 1px solid rgba(17,24,39,.12);
+    border-radius: 20px;
+    padding: 20px 18px;
+    margin-left: 0;
+    margin-right: 0;
+    min-height: 132px;
+    width: 100%;
+    max-width: 100%;
+    box-shadow: 0 10px 28px rgba(17,24,39,.08);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transform: translateY(36px); /* Move bubble down - works in flex layout */
+  }
+
+  /* tail pointing left towards Freud's mouth */
+  .speech-bubble::before{
+    content:'';
+    position:absolute;
+    left: -10px;
+    top: 70px; /* Adjusted to match bubble position after translateY */
+    width:0;height:0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-right: 10px solid #ffffff;
+    filter: drop-shadow(0 1px 0 rgba(0,0,0,0.08));
+  }
+  .speech-bubble::after{
+    content:'';
+    position:absolute;
+    left: -11px;
+    top: 70px; /* Adjusted to match bubble position after translateY */
+    width:0;height:0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-right: 10px solid rgba(17,24,39,.12);
+  }
+
+  @media (max-width: 720px){
+    .speech-bubble::before, .speech-bubble::after{ display:none; }
+  }
+
+  .freud-text{
+    font-size: 18px;
+    line-height: 1.7;
+    color: #1f2937;
+    font-style: italic;
+    margin-bottom: 12px;
+    text-align: center;
+  }
+  .freud-author{
+    font-size: 14px;
+    color: #6b7280;
+    font-style: normal;
+    font-weight: 700;
+    text-align: center;
+  }
+
+  /* Loading & Error */
+  .loading{
+    text-align:center;
+    padding: 26px;
+    color: var(--accent);
+    font-weight: 700;
+    display:none;
+  }
+
+  .error{
+    background: rgba(255,0,0,.06);
+    border: 1px solid rgba(255,0,0,.18);
+    border-radius: 14px;
+    padding: 14px 16px;
+    color: #b91c1c;
+    margin-top: 16px;
+    display:none;
+    font-size: 15px;
+  }
+
+  .no-results{
+    text-align:center;
+    padding: 34px;
+    color: var(--muted);
+    font-size: 15px;
+  }
+
+  .source-attribution{
+    font-size: 12px;
+    color: #7c7c8b;
+    text-align:center;
+    margin-top: 26px;
+    padding-top: 16px;
+    border-top: 1px solid var(--softline);
+  }
+
+  /* Premium refinements - CSS overrides */
+  
+  /* 1) Global spacing rhythm */
+  .header{ margin: 10px 0 28px; }
+  .input-card{ 
+    margin-bottom: 24px;
+    max-width: 70%;
+  }
+  .section-heading{ margin: 18px 0 10px; }
+  .symbols-grid{ margin-bottom: 18px; }
+  .dream-yield-section{ margin: 16px auto 22px; }
+  .freud-section{ margin-bottom: 18px; }
+
+  /* 2) Section headings with visual indicator */
+  .section-heading{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    color:#5b6475;
+  }
+  .section-heading::before{
+    content:"";
+    width:10px;
+    height:10px;
+    border-radius:999px;
+    background: rgba(102,126,234,.55);
+    box-shadow: 0 0 0 4px rgba(102,126,234,.12);
+  }
+
+  /* 3) Symbol cards readability */
+  .symbol-card{ padding: 20px 20px 18px; }
+  .symbol-title{ 
+    margin-bottom: 20px;
+    font-size: 26px;
+    text-align: center;
+    text-decoration: underline;
+    text-decoration-color: rgba(102,126,234,.4);
+    text-underline-offset: 4px;
+    width: 100%;
+    display: block;
+  }
+  .meaning{ 
+    padding: 16px 18px; 
+    border-radius: 16px;
+    font-size: 20.5px;
+    line-height: 1.65;
+    margin-top: 8px;
+  }
+
+  /* 4) Dream Yield as "relic card" */
+  .dream-yield-section{
+    border: 1px solid rgba(102,126,234,.18);
+    box-shadow: 0 18px 50px rgba(102,126,234,.10);
+    background: 
+      radial-gradient(circle at 30% 40%, rgba(124,58,237,.02) 0%, transparent 55%),
+      radial-gradient(circle at 70% 60%, rgba(102,126,234,.02) 0%, transparent 55%),
+      linear-gradient(180deg, rgba(255,255,255,.95), rgba(248,250,255,.92));
+  }
+
+  .dream-yield-item{
+    min-height: 200px;
+    padding: 20px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .dream-yield-book, .dream-yield-emoji{
+    width: 150px;
+    height: 150px;
+    max-width: 100%;
+    display: block;
+    margin: 0 auto;
+  }
+  .dream-yield-label{
+    font-size: 25px;
+  }
+  .dream-yield-sub{
+    font-size: 25px;
+    opacity: .9;
+  }
+
+  /* 5) Freud card spacing and centering */
+  .freud-content{
+    gap: 16px;
+    justify-content: flex-start;
+  }
+
+  .freud-quote-wrap{
+    max-width: 100%;
+    margin-left: 30px; /* Space from Freud image */
+    margin-right: 30px; /* Space from outer border */
+  }
+
+  .speech-bubble{
+    padding: 20px 18px;
+    min-height: 110px;
+    width: calc(100% - 0px);
+    max-width: 100%;
+    transform: translateY(36px); /* Move bubble down - works in flex layout */
+  }
+
+  .freud-text{ 
+    font-size: 17px; 
+    line-height: 1.65; 
+  }
+  .freud-author{ 
+    font-size: 13px; 
+  }
+
+  .speech-bubble::before{ 
+    left: -10px;
+    top: 70px; /* Adjusted to match bubble position after translateY */
+    bottom: auto;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-right: 10px solid #ffffff;
+    border-left: none;
+  }
+  .speech-bubble::after{ 
+    left: -11px;
+    top: 70px; /* Adjusted to match bubble position after translateY */
+    bottom: auto;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-right: 10px solid rgba(17,24,39,.12);
+    border-left: none;
+  }
+  
+  .speech-bubble{
+    margin-top: 24px;
+  }
+
+  /* 6) Tiny clarity improvements */
+  button:focus{
+    outline:none;
+    box-shadow: 0 0 0 4px rgba(124,58,237,.18), 0 16px 34px rgba(102,126,234,.26);
+  }
+
+  textarea{ 
+    min-height: 150px; 
+  }
+
+  /* Premium touch - Dream Yield note */
+  .yield-note{
+    margin-top: 16px;
+    text-align: center;
+    color:#52525b;
+    font-size: 25px;
+    font-weight: 500;
+    line-height: 1.5;
+  }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Dream Interpretation</h1>
+            <p>Discover the hidden meanings in your dreams</p>
+        </div>
+        
+        <div class="input-card">
+            <div class="input-section">
+                <label for="dream-input">Describe Your Dream:</label>
+                <textarea id="dream-input" placeholder="I dreamed about..."></textarea>
+            </div>
+            <button id="match-btn" onclick="matchDream()">Interpret Dream</button>
+        </div>
+        
+        <div class="loading" id="loading">Analyzing your dream...</div>
+        <div class="error" id="error"></div>
+        
+        <div class="results" id="results">
+            <div class="section-heading" id="symbols-heading">SYMBOLS FOUND:</div>
+            <div class="symbols-grid" id="symbols-grid"></div>
+            
+            <div class="dream-yield-section" id="dream-yield-section" style="display: none;">
+                <div class="dream-yield-heading">DREAM YIELD:</div>
+                <div class="dream-yield-content">
+                    <div class="dream-yield-item">
+                        <img id="dream-yield-book" src="" alt="Book" class="dream-yield-book" style="display: none;" />
+                        <div class="dream-yield-meta">
+                            <div class="dream-yield-label">TAROT:</div>
+                            <div class="dream-yield-sub" id="dream-yield-tarot-name"></div>
+                            <div class="dream-yield-tarot-meaning" id="dream-yield-tarot-meaning"></div>
+                        </div>
+                    </div>
+                    <div class="dream-yield-plus">+</div>
+                    <div class="dream-yield-item">
+                        <img id="dream-yield-emoji" src="" alt="Mood" class="dream-yield-emoji" style="display: none;" />
+                        <div class="dream-yield-meta">
+                            <div class="dream-yield-label">EMOTIONAL EFFECT:</div>
+                            <div class="dream-yield-sub" id="dream-yield-emoji-name"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="yield-note" id="yield-note"></div>
+            </div>
+            
+            <div class="freud-section" id="freud-section"></div>
+            
+            <div class="source-attribution" id="source-attribution"></div>
+        </div>
+    </div>
+    
+    <script>
+        async function matchDream() {
+            const dreamText = document.getElementById('dream-input').value.trim();
+            const resultsDiv = document.getElementById('results');
+            const symbolsGrid = document.getElementById('symbols-grid');
+            const freudSection = document.getElementById('freud-section');
+            const dreamYieldSection = document.getElementById('dream-yield-section');
+            const dreamYieldBook = document.getElementById('dream-yield-book');
+            const dreamYieldEmoji = document.getElementById('dream-yield-emoji');
+            const loadingDiv = document.getElementById('loading');
+            const errorDiv = document.getElementById('error');
+            const matchBtn = document.getElementById('match-btn');
+            const symbolsHeading = document.getElementById('symbols-heading');
+            
+            if (!dreamText) {
+                errorDiv.textContent = 'Please enter your dream first.';
+                errorDiv.style.display = 'block';
+                resultsDiv.style.display = 'none';
+                return;
+            }
+            
+            loadingDiv.style.display = 'block';
+            resultsDiv.style.display = 'none';
+            errorDiv.style.display = 'none';
+            matchBtn.disabled = true;
+            
+            try {
+                const response = await fetch('/match', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ dream: dreamText })
+                });
+                
+                if (!response.ok) {
+                    throw new Error('Server error: ' + response.status);
+                }
+                
+                const data = await response.json();
+                
+                loadingDiv.style.display = 'none';
+                matchBtn.disabled = false;
+                
+                // Handle case where no symbols found - show only Freud with guidance
+                if (data.show_freud_only || (!data.symbols || data.symbols.length === 0)) {
+                    symbolsGrid.innerHTML = '';
+                    symbolsHeading.style.display = 'none';
+                    dreamYieldSection.style.display = 'none';
+                    // Will show Freud section with message below
+                } else if (!data.symbols || data.symbols.length === 0) {
+                    symbolsGrid.innerHTML = '<div class="no-results">No matching symbols found in your dream. Try using more specific words from common dream symbols.</div>';
+                    resultsDiv.style.display = 'block';
+                    symbolsHeading.style.display = 'none';
+                    dreamYieldSection.style.display = 'none';
+                    freudSection.style.display = 'none';
+                    return;
+                }
+                
+                // Emoji rules keys (from assign_books_emojis.py)
+                const EMOJI_RULES_KEYS = [
+                    "Angry", "Rage", "Pissed", "Sad", "Crying", "Heartbroken", "Hurt", "Fear", "Nervous",
+                    "Love", "Want", "Money", "Risk", "Devil", "Evil", "Angel", "Question", "Proud", "Honor",
+                    "Sick", "Dead", "Surprised", "Shocked", "Awe", "Disgust", "Jealousy", "Vengeance", "Sneaky",
+                    "Rightious", "Judging", "Planning", "Effort", "Tired", "Bored", "Cool", "Unbothered", "Playful",
+                    "Grin", "Blush", "Mean", "Taunt", "Smug", "Irony", "Begging", "Sweat", "Dizzy", "Ackward",
+                    "Agree", "Starstruck", "Poison", "Cold"
+                ];
+                
+                // Tarot card meanings
+                const TAROT_MEANINGS = {
+                    "The Fool": "Beginnings, risk, openness, stepping into the unknown",
+                    "The Magician": "Agency, intention, shaping reality through will",
+                    "The High Priestess": "Hidden knowledge, intuition, inner awareness",
+                    "The Empress": "Nurturing, growth, abundance, creation",
+                    "The Emperor": "Structure, authority, control, boundaries",
+                    "The Hierophant": "Tradition, belief systems, social rules",
+                    "The Lovers": "Choice, alignment, emotional tension",
+                    "The Chariot": "Momentum, determination, direction",
+                    "Strength": "Inner resilience, gentle control, endurance",
+                    "The Hermit": "Withdrawal, reflection, solitary insight",
+                    "Wheel of Fortune": "Change, cycles, fate beyond control",
+                    "Justice": "Balance, consequence, moral reckoning",
+                    "The Hanged Man": "Suspension, reversal, altered perspective",
+                    "Death": "Ending, transformation, irreversible change",
+                    "Temperance": "Integration, moderation, balance",
+                    "The Devil": "Attachment, compulsion, hidden bondage",
+                    "The Tower": "Sudden disruption, collapse of false structures",
+                    "The Star": "Hope, renewal, quiet faith",
+                    "The Moon": "Uncertainty, fear, illusion, the unconscious",
+                    "The Sun": "Clarity, vitality, joy, illumination",
+                    "Judgement": "Awakening, reckoning, self-evaluation",
+                    "The World": "Completion, integration, wholeness"
+                };
+                
+                // Tarot cards mapping - each emoji links to 2 tarot cards
+                const EMOJI_TO_TAROT = {
+                    "Angry": ["The Tower", "The Devil"],
+                    "Rage": ["The Tower", "The Devil"],
+                    "Pissed": ["The Tower", "Justice"],
+                    "Sad": ["The Moon", "The Hanged Man"],
+                    "Crying": ["The Moon", "The Hanged Man"],
+                    "Heartbroken": ["The Moon", "Death"],
+                    "Hurt": ["The Hanged Man", "Death"],
+                    "Fear": ["The Tower", "Death"],
+                    "Nervous": ["The Tower", "The Moon"],
+                    "Love": ["The Lovers", "The Sun"],
+                    "Want": ["The Lovers", "The Chariot"],
+                    "Money": ["Wheel of Fortune", "The World"],
+                    "Risk": ["The Tower", "Wheel of Fortune"],
+                    "Devil": ["The Devil", "The Tower"],
+                    "Evil": ["The Devil", "Death"],
+                    "Angel": ["The Star", "The Sun"],
+                    "Question": ["The Moon", "The Hermit"],
+                    "Proud": ["The Emperor", "The Sun"],
+                    "Honor": ["The Emperor", "Justice"],
+                    "Sick": ["Death", "The Hanged Man"],
+                    "Dead": ["Death", "The World"],
+                    "Surprised": ["The Star", "The Sun"],
+                    "Shocked": ["The Tower", "The Star"],
+                    "Awe": ["The Star", "The Sun"],
+                    "Disgust": ["The Devil", "Death"],
+                    "Jealousy": ["The Devil", "The Moon"],
+                    "Vengeance": ["The Tower", "Justice"],
+                    "Sneaky": ["The Moon", "The Hermit"],
+                    "Rightious": ["Justice", "The Hierophant"],
+                    "Judging": ["Justice", "The Hierophant"],
+                    "Planning": ["The Magician", "The Chariot"],
+                    "Effort": ["The Magician", "Strength"],
+                    "Tired": ["The Hermit", "The Hanged Man"],
+                    "Bored": ["The Hermit", "The Moon"],
+                    "Cool": ["Temperance", "The Star"],
+                    "Unbothered": ["Temperance", "The Star"],
+                    "Playful": ["The Sun", "The Fool"],
+                    "Grin": ["The Sun", "The Fool"],
+                    "Blush": ["The Lovers", "The High Priestess"],
+                    "Mean": ["The Devil", "The Tower"],
+                    "Taunt": ["The Devil", "The Chariot"],
+                    "Smug": ["The Emperor", "The Hierophant"],
+                    "Irony": ["The Fool", "The Moon"],
+                    "Begging": ["The Hanged Man", "The Hermit"],
+                    "Sweat": ["The Tower", "The Chariot"],
+                    "Dizzy": ["The Moon", "The Hermit"],
+                    "Ackward": ["The Fool", "The Moon"],
+                    "Agree": ["The Hierophant", "Justice"],
+                    "Starstruck": ["The Star", "The Sun"],
+                    "Poison": ["Death", "The Devil"],
+                    "Cold": ["The Hermit", "The Moon"]
+                };
+                
+                // Helper: Get tarot card for emoji (randomly picks one of the 2 linked cards)
+                const getTarotForEmoji = (emojiFileName) => {
+                    if (!emojiFileName) return null;
+                    const emojiName = emojiFileName.replace('.png', '').replace('.PNG', '');
+                    const tarotCards = EMOJI_TO_TAROT[emojiName];
+                    if (tarotCards && tarotCards.length > 0) {
+                        // Randomly pick one of the 2 tarot cards
+                        return tarotCards[Math.floor(Math.random() * tarotCards.length)];
+                    }
+                    return null;
+                };
+                
+                // Helper: Get tarot meaning
+                const getTarotMeaning = (tarotCardName) => {
+                    return TAROT_MEANINGS[tarotCardName] || '';
+                };
+                
+                // Helper: Check if emoji name matches emoji rules key exactly
+                const emojiMatchesRule = (emojiFileName) => {
+                    if (!emojiFileName) return false;
+                    const emojiName = emojiFileName.replace('.png', '');
+                    return EMOJI_RULES_KEYS.includes(emojiName);
+                };
+                
+                // Determine Dream Yield (book + emoji)
+                // Only show Dream Yield if we have exactly 2 symbols (not 1, not 0)
+                let selectedBook = null;
+                let selectedEmoji = null;
+                
+                if (data.symbols && data.symbols.length === 2 && !data.show_freud_only) {
+                    // Only show Dream Yield when we have exactly 2 symbols
+                        // Book: randomly pick one of the two
+                        const randomIndex = Math.random() < 0.5 ? 0 : 1;
+                        selectedBook = data.symbols[randomIndex].book;
+                        
+                        // Emoji: check if one matches emoji rules exactly
+                        const emoji1 = data.symbols[0].emoji;
+                        const emoji2 = data.symbols[1].emoji;
+                        const emoji1Matches = emojiMatchesRule(emoji1);
+                        const emoji2Matches = emojiMatchesRule(emoji2);
+                        
+                        if (emoji1Matches && !emoji2Matches) {
+                            selectedEmoji = emoji1;
+                        } else if (emoji2Matches && !emoji1Matches) {
+                            selectedEmoji = emoji2;
+                        } else {
+                            // Both match or neither match - randomly pick one
+                            selectedEmoji = Math.random() < 0.5 ? emoji1 : emoji2;
+                        }
+                    
+                    // Display Dream Yield card (only for 2 symbols)
+                    if (selectedBook) {
+                        // Encode paths with spaces properly
+                        const bookPath = `/without background BOOK/${selectedBook}`.replace(/ /g, '%20');
+                        dreamYieldBook.src = bookPath;
+                        dreamYieldBook.style.display = 'block';
+                        dreamYieldSection.style.display = 'block';
+                        
+                        // Get tarot card name and meaning based on selected emoji
+                        const tarotCardName = selectedEmoji ? getTarotForEmoji(selectedEmoji) : null;
+                        const tarotNameElement = document.getElementById('dream-yield-tarot-name');
+                        const tarotMeaningElement = document.getElementById('dream-yield-tarot-meaning');
+                        
+                        if (tarotNameElement) {
+                            tarotNameElement.textContent = tarotCardName || '';
+                        }
+                        
+                        if (tarotMeaningElement) {
+                            const meaning = tarotCardName ? getTarotMeaning(tarotCardName) : '';
+                            tarotMeaningElement.textContent = meaning;
+                        }
+                        
+                        // Set yield-note to tarot description
+                        const yieldNoteElement = document.getElementById('yield-note');
+                        if (yieldNoteElement && tarotCardName) {
+                            const tarotDesc = getTarotMeaning(tarotCardName);
+                            yieldNoteElement.textContent = tarotDesc || '';
+                        }
+                        
+                        if (selectedEmoji) {
+                            const emojiPath = `/without background/${selectedEmoji}`.replace(/ /g, '%20');
+                            dreamYieldEmoji.src = emojiPath;
+                            dreamYieldEmoji.style.display = 'block';
+                            
+                            // Extract emoji name from filename (remove .png extension)
+                            const emojiName = selectedEmoji.replace('.png', '').replace('.PNG', '');
+                            const emojiNameElement = document.getElementById('dream-yield-emoji-name');
+                            if (emojiNameElement) {
+                                emojiNameElement.textContent = emojiName;
+                            }
+                        } else {
+                            dreamYieldEmoji.style.display = 'none';
+                            const emojiNameElement = document.getElementById('dream-yield-emoji-name');
+                            if (emojiNameElement) {
+                                emojiNameElement.textContent = '';
+                            }
+                        }
+                    } else {
+                        dreamYieldSection.style.display = 'none';
+                    }
+                } else {
+                    // Hide Dream Yield if we have 0 or 1 symbol
+                    dreamYieldSection.style.display = 'none';
+                }
+                
+                // Build symbol cards
+                let symbolsHtml = '';
+                const symbolLabels = ['A', 'B'];
+                
+                data.symbols.forEach((symbol, index) => {
+                    const label = index < 2 ? symbolLabels[index] : String(index + 1);
+                    
+                    symbolsHtml += `
+                        <div class="symbol-card">
+                            <div class="symbol-header">
+                                <div class="symbol-title-wrapper">
+                                    <span class="symbol-title">${symbol.word}</span>
+                                </div>
+                            </div>
+                            <div class="meaning">${symbol.explanation}</div>
+                        </div>
+                    `;
+                });
+                
+                // Only show symbols grid if we have symbols and not showing Freud only
+                if (!data.show_freud_only && data.symbols && data.symbols.length > 0) {
+                    symbolsGrid.innerHTML = symbolsHtml;
+                    symbolsHeading.style.display = 'block';
+                } else {
+                    symbolsGrid.innerHTML = '';
+                    symbolsHeading.style.display = 'none';
+                }
+                
+                // Build Freud section
+                let freudQuote = '';
+                let freudAuthor = '';
+                let showMessageInBubble = false;
+                
+                // Check if we should show message in bubble (no symbols found OR one symbol found)
+                if (data.show_freud_only && data.message) {
+                    // No symbols found OR one symbol found - put message directly in speech bubble, no quote
+                    freudQuote = data.message;
+                    freudAuthor = '';
+                    showMessageInBubble = true;
+                } else if (!data.show_freud_only && data.symbols && data.symbols.length >= 2 && data.symbols[0].quote) {
+                    // We have 2+ symbols and a quote - use it
+                    freudQuote = data.symbols[0].quote.quote;
+                    freudAuthor = data.symbols[0].quote.author;
+                } else {
+                    // Fallback quotes when not showing symbols or no quote available
+                    if (!data.show_freud_only && data.symbols && data.symbols.length >= 2) {
+                        // We have 2+ symbols but no quote - use generic Freud quote
+                        const symbols = data.symbols.map(s => s.word.toLowerCase()).join(' and ');
+                        freudQuote = `Your mind stages ${symbols} when desire meets resistance. The symptom is not the point — the conflict is.`;
+                        freudAuthor = 'Sigmund Freud';
+                    } else {
+                        // Default fallback
+                        freudQuote = 'Dreams are the royal road to the unconscious. What you remember is only the surface—beneath lies the true meaning.';
+                        freudAuthor = 'Sigmund Freud';
+                    }
+                }
+                
+                // No separate message box - message goes in bubble when show_freud_only is true
+                let messageHtml = '';
+                
+                // Build speech bubble content
+                let bubbleContent = '';
+                if (showMessageInBubble) {
+                    // Message in bubble (no quote, no author)
+                    bubbleContent = `<div class="freud-text">${freudQuote}</div>`;
+                } else {
+                    // Normal quote with author
+                    bubbleContent = `
+                        <div class="freud-text">"${freudQuote}"</div>
+                        ${freudAuthor ? `<div class="freud-author">— ${freudAuthor}</div>` : ''}
+                    `;
+                }
+                
+                freudSection.innerHTML = `
+                    ${messageHtml}
+                    <div class="freud-content">
+                        <img src="FREUD.PNG" alt="Sigmund Freud" class="freud-image" />
+                        <div class="freud-quote-wrap">
+                            <div class="speech-bubble">
+                                ${bubbleContent}
+                            </div>
+                        </div>
+                    </div>
+                `;
+                
+                // Add source attribution at the absolute bottom (only if we have symbols)
+                const sourceAttribution = document.getElementById('source-attribution');
+                if (data.symbols && data.symbols.length > 0 && !data.show_freud_only) {
+                    sourceAttribution.style.textAlign = 'center';
+                    sourceAttribution.style.marginTop = '48px';
+                    sourceAttribution.style.marginBottom = '24px';
+                    sourceAttribution.textContent = 'Source: Gustavus Hindman Miller · 1901 — What\'s in a Dream? A Scientific and Practical Interpretation of Dreams';
+                    sourceAttribution.style.display = 'block';
+                } else {
+                    sourceAttribution.style.display = 'none';
+                }
+                
+                resultsDiv.style.display = 'block';
+                
+            } catch (error) {
+                loadingDiv.style.display = 'none';
+                matchBtn.disabled = false;
+                errorDiv.textContent = 'Error: ' + error.message + '. Make sure the server is running.';
+                errorDiv.style.display = 'block';
+                resultsDiv.style.display = 'none';
+            }
+        }
+        
+        // Allow Ctrl+Enter to submit
+        document.getElementById('dream-input').addEventListener('keydown', function(e) {
+            if (e.ctrlKey && e.key === 'Enter') {
+                matchDream();
+            }
+        });
+    </script>
+</body>
+</html>
