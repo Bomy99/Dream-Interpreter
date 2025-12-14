@@ -55,10 +55,11 @@ Works 24/7 - just type your dream and get an interpretation! 😊
 ## Important Notes:
 
 ✅ **Free Plan Details:**
-- Stays online 24/7
-- Spins down after 15 minutes of inactivity
-- Automatically wakes up when someone visits (takes ~30 seconds on first request)
-- After that, it's instant!
+- Stays online 24/7 (always accessible!)
+- Spins down after 15 minutes of inactivity (saves resources)
+- **Automatically wakes up** when someone visits (takes ~30 seconds on first request after sleep)
+- After that, it's instant until next sleep cycle!
+- **Perfect for sharing with friends** - they can always access it, just might wait 30 seconds if they're the first visitor after a quiet period
 
 ✅ **Your app will be live at:**
 `https://dream-interpreter.onrender.com` (or whatever name you chose)
