@@ -107,10 +107,14 @@ class DreamMatcherHandler(BaseHTTPRequestHandler):
 
 def run_server(port=8000):
     """Run the HTTP server."""
+    import os
+    # Get port from environment variable (for cloud hosting) or use default
+    port = int(os.environ.get('PORT', port))
+    
     server_address = ('', port)
     httpd = HTTPServer(server_address, DreamMatcherHandler)
     print(f"\nDream-Quote Matcher Server")
-    print(f"Server running at http://localhost:{port}/")
+    print(f"Server running at http://0.0.0.0:{port}/")
     print(f"Open http://localhost:{port}/dream_matcher.html in your browser")
     print("Press Ctrl+C to stop the server\n")
     

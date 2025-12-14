@@ -1,0 +1,3 @@
+run = "python server.py"
+entrypoint = "server.py"
+language = "python3"
