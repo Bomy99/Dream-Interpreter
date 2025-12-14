@@ -1,0 +1,15 @@
+🧠 Dream Interpretation Tool - Try it out!
+
+I built a cool dream interpretation app! Here's how to use it:
+
+1. Go to: https://github.com/Bomy99/Dream-Interpreter
+2. Click the green "Code" button → "Download ZIP"
+3. Extract the ZIP file
+4. Double-click "START.bat" (Windows) or run "python3 server.py" (Mac/Linux)
+5. Open your browser to: http://localhost:8000/dream_matcher.html
+
+That's it! Just type your dream and get an interpretation with tarot cards and everything.
+
+Works completely offline - no internet needed after downloading!
+
+Let me know what you think! 😊
