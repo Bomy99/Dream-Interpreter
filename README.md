@@ -49,12 +49,16 @@ A beautiful, offline dream interpretation web application that matches your drea
 
 ## 📖 How to Use
 
-1. **Enter Your Dream**: Type your dream description in the text box
-2. **Get Interpretation**: Click the button to analyze your dream
-3. **View Results**: 
+1. **Start the server**: Double-click `START.bat` (Windows) or run `python3 server.py` (Mac/Linux)
+2. **Open your browser**: Go to `http://localhost:8000/dream_matcher.html`
+3. **Enter Your Dream**: Type your dream description in the text box
+4. **Get Interpretation**: Click the button to analyze your dream
+5. **View Results**: 
    - See matched symbols with their meanings
    - View your Dream Yield (tarot card + emotional emoji)
    - Read Freud's remark about your dream
+
+**Keep the server window open** while using the app!
 
 ## 🎯 Example
 
