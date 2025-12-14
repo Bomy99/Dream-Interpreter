@@ -109,7 +109,7 @@ def run_server(port=8000):
     """Run the HTTP server."""
     server_address = ('', port)
     httpd = HTTPServer(server_address, DreamMatcherHandler)
-    print(f"\n🌙 Dream-Quote Matcher Server")
+    print(f"\nDream-Quote Matcher Server")
     print(f"Server running at http://localhost:{port}/")
     print(f"Open http://localhost:{port}/dream_matcher.html in your browser")
     print("Press Ctrl+C to stop the server\n")
