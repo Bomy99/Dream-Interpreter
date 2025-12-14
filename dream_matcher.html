@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="mobile-web-app-capable" content="yes">
     <title>Dream Interpretation</title>
     <style>
   :root{
@@ -162,6 +163,151 @@
   }
   @media (max-width: 720px){
     .symbols-grid{ grid-template-columns: 1fr; }
+    
+    /* Mobile: Full width container */
+    body{
+      padding: 16px 12px 32px;
+    }
+    
+    .container{
+      max-width: 100%;
+    }
+    
+    /* Mobile: Header */
+    .header{
+      margin: 8px 0 20px;
+    }
+    
+    .header h1{
+      font-size: 32px;
+      margin-bottom: 8px;
+    }
+    
+    .header p{
+      font-size: 14px;
+    }
+    
+    /* Mobile: Input card */
+    .input-card{
+      max-width: 100%;
+      padding: 20px 16px;
+      margin-bottom: 20px;
+    }
+    
+    .input-section label{
+      font-size: 12px;
+      margin-bottom: 8px;
+    }
+    
+    textarea{
+      min-height: 120px;
+      padding: 14px 14px;
+      font-size: 16px; /* Prevents zoom on iOS */
+    }
+    
+    button{
+      padding: 14px 16px;
+      font-size: 15px;
+      margin-top: 16px;
+    }
+    
+    /* Mobile: Section headings */
+    .section-heading{
+      font-size: 20px;
+      margin: 16px 0 8px;
+    }
+    
+    /* Mobile: Symbol cards */
+    .symbol-card{
+      padding: 18px 16px 16px;
+    }
+    
+    .symbol-title{
+      font-size: 22px;
+      margin-bottom: 16px;
+    }
+    
+    .meaning{
+      font-size: 17px;
+      line-height: 1.6;
+      padding: 14px 16px;
+      margin-top: 6px;
+    }
+    
+    /* Mobile: Dream Yield */
+    .dream-yield-section{
+      max-width: 100%;
+      margin: 18px auto 24px;
+      padding: 16px 14px 14px;
+    }
+    
+    .dream-yield-heading{
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+    
+    .dream-yield-book, .dream-yield-emoji{
+      width: 120px;
+      height: 120px;
+      max-height: 120px;
+    }
+    
+    .dream-yield-label{
+      font-size: 20px;
+      margin-top: 8px;
+    }
+    
+    .dream-yield-sub{
+      font-size: 20px;
+    }
+    
+    .yield-note{
+      font-size: 18px;
+      margin-top: 12px;
+      padding: 0 8px;
+    }
+    
+    /* Mobile: Freud section */
+    .freud-section{
+      max-width: 100%;
+      padding: 18px 16px;
+      margin-bottom: 16px;
+    }
+    
+    .freud-image{
+      width: 180px;
+      max-width: 100%;
+      margin: 0 auto 16px;
+    }
+    
+    .freud-quote-wrap{
+      margin-left: 0;
+      margin-right: 0;
+      width: 100%;
+    }
+    
+    .speech-bubble{
+      transform: translateY(0);
+      padding: 18px 16px;
+      min-height: auto;
+    }
+    
+    .freud-text{
+      font-size: 16px;
+      line-height: 1.5;
+    }
+    
+    .freud-author{
+      font-size: 13px;
+      margin-top: 10px;
+    }
+    
+    /* Mobile: Source attribution */
+    .source-attribution{
+      font-size: 11px;
+      margin-top: 20px;
+      padding-top: 14px;
+    }
   }
 
   .symbol-card{
@@ -245,7 +391,7 @@
   @media (max-width: 720px){
     .dream-yield-content{ 
       grid-template-columns: 1fr; 
-      gap: 14px;
+      gap: 16px;
     }
     .dream-yield-plus{ display: none; }
   }
@@ -346,7 +492,10 @@
   }
 
   @media (max-width: 720px){
-    .freud-content{ flex-direction: column; }
+    .freud-content{ 
+      flex-direction: column; 
+      align-items: center;
+    }
   }
 
   .freud-image{
@@ -413,6 +562,10 @@
 
   @media (max-width: 720px){
     .speech-bubble::before, .speech-bubble::after{ display:none; }
+    .freud-quote-wrap{
+      margin-left: 0;
+      margin-right: 0;
+    }
   }
 
   .freud-text{
